@@ -3,7 +3,7 @@ import { FUTOK } from "./adatok.js";
 const befutottVersenyzok = [];
 
 // 1. feladat
-const ELSO = document.querySelector("feladat_1")
+const ELSO = document.querySelector("#feladat_1")
 function letrehozTablazat() {
     let txt = "<table>"
     for (let index = 0; index < FUTOK.length; index++) {
@@ -14,15 +14,16 @@ function letrehozTablazat() {
                 </tr>`;
     }
     txt += "</table>"
-    ELSO.innerHTML = txt;
+    return txt;
 }
+ELSO.innerHTML=letrehozTablazat();
 
 
 
 
 // 2. feladat
 function osszesit() {
-
+    
 
 }
 
