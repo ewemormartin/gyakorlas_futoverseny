@@ -1,9 +1,13 @@
 import { FUTOK } from "./adatok.js";
 
 const befutottVersenyzok = [];
+const ELSO = document.querySelector("#feladat_1")
+const MASODIK = document.querySelector("#feladat_2")
+const HARMADIK = document.querySelector("#feladat_3");
 
 // 1. feladat
-const ELSO = document.querySelector("#feladat_1")
+
+
 function letrehozTablazat() {
     let txt = "<table>"
     for (let index = 0; index < FUTOK.length; index++) {
@@ -22,7 +26,8 @@ ELSO.innerHTML=letrehozTablazat();
 
 
 // 2. feladat
-const MASODIK = document.querySelector("#feladat_2")
+
+
 function osszesit() {
     let maraton= 0;
     let felmaraton = 0;
@@ -44,16 +49,34 @@ function osszesit() {
              <p>10km: ${TIZkm}</p>`  
     return txt;
 }
-MASODIK.innerHTML=osszesit();
+
+
+
 
 // 3. feladat
-function befutott(sor, adatok) {
-    for (let index = 0; index < FUTOK.length; index++) {
-        
-        
-    }
-    
+
+
+const tableELEM = document.querySelectorAll("#feladat_1 tr");
+function befutott() {
+  for (let index = 0; index < tableELEM.length; index++) {
+    tableELEM[index].addEventListener("click", function () {
+      if (befutottVersenyzok.indexOf(FUTOK[index]) < 0) {
+        HARMADIK.innerHTML += `<tr>
+                    <td>${FUTOK[index].nev}</td>
+                    <td>${FUTOK[index].nemzetiseg}</td>
+                    <td>${FUTOK[index].versenyIdo}</td>
+                    </tr>`;
+        befutottVersenyzok.push(FUTOK[index]);
+        tableELEM[index].classList.add("befutott");
+      }
+    });
+  }
 }
+befutott();
+
+
+
+
 
 // 4. feladat
 function torolEsemeny() {
