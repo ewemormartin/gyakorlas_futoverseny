@@ -49,6 +49,7 @@ function osszesit() {
              <p>10km: ${TIZkm}</p>`  
     return txt;
 }
+MASODIK.innerHTML= osszesit();
 
 
 
